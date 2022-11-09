@@ -22,12 +22,12 @@ class Solution {
         int sum = 0;
         int i,end;
          for (i = 0, end = s.length() - 1; i < end; i++){
-             char cur = s.charAt(i);
-             char next = s.charAt(i + 1);
-             if (getInteger(cur) - getInteger(next) >= 0){
-                 sum += getInteger(cur);
+             int cur = getInteger(s.charAt(i));
+             int next = getInteger(s.charAt(i + 1));
+             if (cur - next >= 0){
+                 sum += cur;
              }else{
-                 sum += (getInteger(next) - getInteger(cur));
+                 sum += (next - cur);
                  i++;
              }
         }
