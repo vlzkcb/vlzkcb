@@ -1,38 +1,33 @@
-import java.util.*;
 class Solution {
-    static int getInteger(char c){
-        if (c == 'I') return 1;
-        else if (c == 'V') return 5;
-        else if (c == 'X') return 10;
-        else if (c == 'L') return 50;
-        else if (c == 'C') return 100;
-        else if (c == 'D') return 500;
-        else return 1000;
-        
+    
+    static Map<String, Integer> values = new HashMap<>();
+    
+    static {
+        values.put("M", 1000);
+        values.put("D", 500);
+        values.put("C", 100);
+        values.put("L", 50);
+        values.put("X", 10);
+        values.put("V", 5);
+        values.put("I", 1);
     }
+
     public int romanToInt(String s) {
-        Map <Character, Integer> map = new HashMap<>();
-        map.put('I', 1);
-        map.put('V', 5);
-        map.put('X',10);
-        map.put('L',50);
-        map.put('C',100);
-        map.put('D',500);
-        map.put('M',1000);
-        int sum = 0;
-        int i,end;
-         for (i = 0, end = s.length() - 1; i < end; i++){
-             int cur = getInteger(s.charAt(i));
-             int next = getInteger(s.charAt(i + 1));
-             if (cur - next >= 0){
-                 sum += cur;
-             }else{
-                 sum += (next - cur);
-                 i++;
-             }
+        
+        String lastSymbol = s.substring(s.length() - 1);
+        int lastValue = values.get(lastSymbol);
+        int total = lastValue;
+
+        for (int i = s.length() - 2; i >= 0; i--) {
+            String currentSymbol = s.substring(i, i + 1);
+            int currentValue = values.get(currentSymbol);
+            if (currentValue < lastValue) {
+                total -= currentValue;
+            } else {
+                total += currentValue;
+            }
+            lastValue = currentValue;
         }
-        if (i == s.length() - 1)
-            sum += getInteger(s.charAt(i));
-        return sum;
+        return total;
     }
 }
