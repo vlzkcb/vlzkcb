@@ -1,5 +1,15 @@
 import java.util.*;
 class Solution {
+    static int getInteger(char c){
+        if (c == 'I') return 1;
+        else if (c == 'V') return 5;
+        else if (c == 'X') return 10;
+        else if (c == 'L') return 50;
+        else if (c == 'C') return 100;
+        else if (c == 'D') return 500;
+        else return 1000;
+        
+    }
     public int romanToInt(String s) {
         Map <Character, Integer> map = new HashMap<>();
         map.put('I', 1);
@@ -14,15 +24,15 @@ class Solution {
          for (i = 0, end = s.length() - 1; i < end; i++){
              char cur = s.charAt(i);
              char next = s.charAt(i + 1);
-             if (map.get(cur) - map.get(next) >= 0){
-                 sum += map.get(cur);
+             if (getInteger(cur) - getInteger(next) >= 0){
+                 sum += getInteger(cur);
              }else{
-                 sum += (map.get(next) - map.get(cur));
+                 sum += (getInteger(next) - getInteger(cur));
                  i++;
              }
         }
         if (i == s.length() - 1)
-            sum += map.get(s.charAt(i));
+            sum += getInteger(s.charAt(i));
         return sum;
     }
 }
