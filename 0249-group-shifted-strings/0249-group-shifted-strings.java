@@ -5,9 +5,10 @@ class Solution {
         for (String str : strings){
             StringBuilder sb = new StringBuilder();
             char base = str.charAt(0);
-            for (int i = 0, end = str.length(); i < end; i++){
-                int tp = str.charAt(i) - base >= 0 ? str.charAt(i) - base : 26 + str.charAt(i) - base;
-                sb.append(tp);
+            char[] chars = str.toCharArray();
+            for (int i = 1, end = str.length(); i < end; i++){
+                // int tp = str.charAt(i) - base >= 0 ? str.charAt(i) - base : 26 + str.charAt(i) - base;
+                sb.append((char) ((chars[i] - chars[i - 1] + 26) % 26 + 'a'));
                 sb.append(',');
             }
             String key = sb.toString();
