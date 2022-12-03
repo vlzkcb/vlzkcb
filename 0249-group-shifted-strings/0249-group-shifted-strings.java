@@ -9,7 +9,6 @@ class Solution {
             for (int i = 1, end = str.length(); i < end; i++){
                 // int tp = str.charAt(i) - base >= 0 ? str.charAt(i) - base : 26 + str.charAt(i) - base;
                 sb.append((char) ((chars[i] - chars[i - 1] + 26) % 26 + 'a'));
-                sb.append(',');
             }
             String key = sb.toString();
             if (map.containsKey(key)) map.get(key).add(str);
