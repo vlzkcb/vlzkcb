@@ -7,7 +7,7 @@ class Vector2D {
     Iterator<Integer> iter;
     public Vector2D(int[][] vec) {
         idx = 0;
-        ar = new int [1000000];
+        ar = new int [1000001];
         for (int[] oneDArr : vec){
             for(int el : oneDArr){
                ar[idx++] = el; 
