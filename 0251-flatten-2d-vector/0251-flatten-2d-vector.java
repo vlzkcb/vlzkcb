@@ -3,32 +3,29 @@ class Vector2D {
     List<Integer> arr;
     int size;
     int idx;
+    int []ar;
     Iterator<Integer> iter;
     public Vector2D(int[][] vec) {
-        arr = new ArrayList<>();
+        idx = 0;
+        ar = new int [1000000];
         for (int[] oneDArr : vec){
             for(int el : oneDArr){
-               arr.add(el); 
+               ar[idx++] = el; 
             }
         }
-        iter = arr.iterator();
-        // size = arr.size();
-        // idx = 0;
+        size = idx;
+        idx = 0;
     }
     
     public int next() {
-        // if(hasNext()){
-        //     idx++;
-        //     return (arr.get(idx - 1));
-        // }else{
-        //     return (-1000);
-        // }
-        return iter.next();
-        
+        if(hasNext()){
+            return (ar[idx++]);
+        }
+        return 501;
     }
     
     public boolean hasNext() {
-        return iter.hasNext();
+        return idx < size;
     }
 }
 
