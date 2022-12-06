@@ -3,7 +3,7 @@ class Vector2D {
     int size;
     int idx;
     public Vector2D(int[][] vec) {
-        arr = new LinkedList<>();
+        arr = new ArrayList<>();
         for (int[] oneDArr : vec){
             for(int el : oneDArr){
                arr.add(el); 
