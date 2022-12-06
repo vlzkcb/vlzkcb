@@ -1,7 +1,9 @@
+import java.util.*;
 class Vector2D {
     List<Integer> arr;
     int size;
     int idx;
+    Iterator<Integer> iter;
     public Vector2D(int[][] vec) {
         arr = new ArrayList<>();
         for (int[] oneDArr : vec){
@@ -9,22 +11,24 @@ class Vector2D {
                arr.add(el); 
             }
         }
-        size = arr.size();
-        idx = 0;
+        iter = arr.iterator();
+        // size = arr.size();
+        // idx = 0;
     }
     
     public int next() {
-        if(hasNext()){
-            idx++;
-            return (arr.get(idx - 1));
-        }else{
-            return (-1000);
-        }
+        // if(hasNext()){
+        //     idx++;
+        //     return (arr.get(idx - 1));
+        // }else{
+        //     return (-1000);
+        // }
+        return iter.next();
         
     }
     
     public boolean hasNext() {
-        return (idx < size);
+        return iter.hasNext();
     }
 }
 
