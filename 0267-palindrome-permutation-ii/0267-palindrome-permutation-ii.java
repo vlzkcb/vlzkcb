@@ -29,7 +29,6 @@ class Solution {
                 }
             } 
         }
-        System.out.println(oddPos);
         V = new boolean[lst.size()];
         getString(0, new StringBuilder(), oddPos);
         return new LinkedList<>(st);
