@@ -5,6 +5,7 @@ class Solution {
     static String ss;
     static int [] count;
     public List<String> generatePalindromes(String s) {
+        int si = 0;
         count = new int[26];
         int oddNum = 0;
         int oddPos = -1;
@@ -13,6 +14,7 @@ class Solution {
         st = new HashSet<>();
         for (int i = 0; i < s.length(); i++){
             count[s.charAt(i) - 'a']++;
+            // if (count[s.charAt(i) - 'a'] == 1) si++;
         }
         for (int i = 0; i < 26; i++){
             if (count[i] % 2 == 1) {
@@ -38,7 +40,6 @@ class Solution {
             for (int i = sb.length() - 1; i > -1; i--){
                 sb.append(sb.toString().charAt(i));
             }
-            System.out.println(sb.toString());
             if (ss.length() % 2 == 1) sb.insert(sb.length() / 2, (char)(idx+'a'));
             st.add(sb.toString());
             if (ss.length() % 2 == 1) sb.deleteCharAt(sb.length() / 2);
