@@ -22,16 +22,12 @@ class Solution {
         }
         if (s.length() % 2 == 0 && oddNum != 0) return new LinkedList<>();
         if (s.length() % 2 == 1 && oddNum != 1) return new LinkedList<>();
-        while (true){
-            int cnt = 0;
-            for (int i = 0; i < 26; i++){
-                if(count[i] > 1){
-                    cnt++;
+        for (int i = 0; i < 26; i++){
+            if (count[i] > 1){
+                for (int j = 0; j < count[i] / 2 ; j++){
                     lst.add((char)(i + 'a'));
-                    count[i] -= 2;
                 }
-            }
-            if (cnt == 0) break;
+            } 
         }
         System.out.println(oddPos);
         V = new boolean[lst.size()];
