@@ -8,7 +8,7 @@ public class Solution extends Relation {
         
         for(int i = 0; i < n; i++){
             // if (!isCele[i]) continue;
-            for(int j = i; j < n; j++){
+            for(int j = i + 1; j < n; j++){
                 if (i != j && knows(i,j)) isCele[i] = false;
                 else if (i != j && !knows(i,j)) isCele[j] = false;
                 if (i != j && knows(j,i)) isCele[j] = false;
