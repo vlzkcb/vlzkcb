@@ -11,13 +11,10 @@ public class Solution extends Relation {
             for(int j = 0; j < n; j++){
                 if (i != j && knows(i,j)) isCele[i] = false;
                 if (i != j && knows(j,i)) isCele[j] = false;
-            }
-            for(int j = 0; j < n; j++){
                 if(isCele[j]){
                     if(!knows(i, j)) isCele[j] = false;
                 }
             }
-            System.out.println(Arrays.toString(isCele));
         }
         int idx = -1;
         int cnt = 0;
