@@ -21,10 +21,11 @@ public class Solution extends Relation {
         for (int i = 0; i < n; i++) {
             if (isCele[i]) {
                 cnt++;
+                if (cnt > 1) return -1;
                 idx = i;
             }
         }
-        if (cnt != 1) return -1;
+        if (cnt == 0) return -1;
         return idx;
         // return -1;
     }
